@@ -1,6 +1,4 @@
 FROM mono
- 
-MAINTAINER Seif Attar <iam@seifattar.net>
 
 RUN apt-get update \
         && apt-get update \
@@ -17,7 +15,7 @@ RUN apt-get update \
             s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g; \
             ' /etc/apache2/apache2.conf
 
-ADD ./config/apache2-site.conf /etc/apache2/sites-available/default
+ADD ./config/apache2-site.conf /etc/apache2/sites-available/000-default.conf
 
 WORKDIR /var/www
 EXPOSE 80
